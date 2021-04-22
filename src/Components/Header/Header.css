@@ -1,0 +1,23 @@
+:root {
+    --btn-font-color: #002244;
+    --btn-background: #89CFF0;
+    --title-text-color: #F0F8FF;
+}
+.title{
+    color: var(--title-text-color);
+    margin: 1rem 10rem 1rem 33rem;   
+}
+.app-logo{
+    max-width: 22%;
+    margin: 1rem 10rem 1rem 30rem;
+}
+.sign-in-btn{
+    padding: 1rem;
+    margin: 1rem 10rem 1rem 33rem;
+    border-radius: 0.78rem;
+    border: none;
+    background: var(--btn-background);
+    color: var(--btn-font-color);
+    font-size: 16px;
+    font-weight: 700;
+}
