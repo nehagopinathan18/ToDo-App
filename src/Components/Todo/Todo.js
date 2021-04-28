@@ -6,6 +6,7 @@ class Todo extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
+            userInput:"",
             items: []
         };
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -14,33 +15,28 @@ class Todo extends React.Component{
     }
     handleInputChange(event) {
         this.setState({
-            items: event.target.value
+            userInput: event.target.value
         });
-       
+        console.log(this.state.userInput);
+
         
     }
     addItem(e) {
-        if (this.state.items !== "") {
+        e.preventDefault();
            var newItem = {
-                text: this.state.items.value,
-                key: Date.now()
+                text: this.state.userInput,
+                createdDate: Date.now()
             };
             
-            this.setState((prevState) => {
-                return {
-                    items: prevState.items.concat(newItem)
-                };
-            });
-            this.setState(() => {
-                return {
-                    value: ""
-                };
-            });
-        }
-        alert("form submit", this.state.items);
+        this.setState((prevState) => {
+            console.log(prevState);
+            return { items: prevState.items.push(newItem) }
+        });
+    
+        
         console.log(this.state.items);
      
-        e.preventDefault();
+        
        
     }
     
@@ -51,12 +47,12 @@ class Todo extends React.Component{
                 <img alt="todo-img" className="app-logo" src="https://image.freepik.com/free-vector/people-making-list-illustration_53876-64623.jpg" ></img>
                 <div className="form-container">
                 <form onSubmit={this.addItem}>
-                    <input placeholder="Enter task" className="input-task" onChange={this.handleInputChange} value = {this.state.item}></input>
+                    <input placeholder="Enter task" className="input-task" onChange={this.handleInputChange} value = {this.state.userInput}></input>
                     
                         <button type="submit" className="add-btn">Add</button>
                 </form>
                 </div>
-                <Todoitems entries={this.state.items}/>
+                {/* <Todoitems entries={this.state.items}/> */}
             </div>
         );
     }
