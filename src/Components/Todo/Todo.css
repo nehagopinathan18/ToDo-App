@@ -16,14 +16,14 @@
 
 }
 .input-task{
-    padding: 0.5rem;
+    padding: 1rem;
     width: 65%;
     border-radius: 0.5rem;
     border: solid 1px black;
 }
 .add-btn{
     margin-left: 0.5rem;
-    padding: 0.5rem;
+    padding: 1rem;
     width: 15%;
     border-radius: 0.5rem;
     border: solid 1px black;

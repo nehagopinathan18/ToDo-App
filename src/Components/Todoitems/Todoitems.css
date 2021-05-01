@@ -1,0 +1,19 @@
+.theList{
+    border: 1px ;
+    padding: 1rem 0.5rem 0.5rem 1rem;
+    max-width: 65%;
+    list-style: none;
+    margin: 1rem 5rem 1rem 13rem;
+    border-radius: 0.5rem;
+    background-color: #E5E7EB;
+}
+.save-img{
+    
+   margin: 0rem 1rem 0.5rem 40rem;
+}
+li{
+    margin: 0rem auto;
+    font-size: 17px;
+    text-align: left;
+    display: flex;
+}

@@ -11,34 +11,41 @@ class Todo extends React.Component{
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.addItem = this.addItem.bind(this);
-    
+        this.deleteItem = this.deleteItem.bind(this);
     }
     handleInputChange(event) {
         this.setState({
             userInput: event.target.value
         });
-        console.log(this.state.userInput);
+        // console.log(this.state.userInput);
 
         
     }
     addItem(e) {
         e.preventDefault();
-           var newItem = {
-                text: this.state.userInput,
-                createdDate: Date.now()
-            };
-            
-        this.setState((prevState) => {
-            console.log(prevState);
-            return { items: prevState.items.push(newItem) }
-        });
+        var newItem = {
+          text: this.state.userInput,
+          createdDate: Date.now(),
+        };
+        let oldItems = this.state.items;
+        oldItems.push(newItem);
     
-        
-        console.log(this.state.items);
-     
-        
-       
+        this.setState({
+          items: oldItems,
+        });
+        // console.log(oldItems);
+        // console.log(newItem);
     }
+    deleteItem(createdDate) {
+        var filteredItems = this.state.items.filter(function (item) {
+          return (item.createdDate !== createdDate);
+        });
+       
+        this.setState({
+          items: filteredItems
+        });
+        console.log(filteredItems);
+      }
     
     render() {
         return (
@@ -52,7 +59,7 @@ class Todo extends React.Component{
                         <button type="submit" className="add-btn">Add</button>
                 </form>
                 </div>
-                {/* <Todoitems entries={this.state.items}/> */}
+                <Todoitems entries={this.state.items} delete={this.deleteItem}/>
             </div>
         );
     }
