@@ -5,14 +5,15 @@
 }
 .title{
     color: var(--title-text-color);
-    margin: 1rem 10rem 1rem 33rem;   
+    margin: 1rem 10rem 1rem 27rem;   
 }
 .app-logo{
-    max-width: 22%;
-    margin: 1rem 10rem 1rem 30rem;
+    max-width: 28%;
+    margin: 1rem 10rem 1rem 25rem;
+    display: flex;
 }
 .form-container{
-    margin: 2rem 1rem 1rem 15rem;
+    margin: 2rem 1rem 1rem 12rem;
 
 }
 .input-task{
@@ -27,4 +28,26 @@
     width: 15%;
     border-radius: 0.5rem;
     border: solid 1px black;
+    background-color: var(--btn-font-color);
+    color: var(--title-text-color);
+}
+@media only screen and (max-device-width: 480px) {
+    .app-logo{
+        margin: 10rem 0rem 1rem 3rem;
+        max-width: 65%;
+        
+    }
+    .title{
+        margin: 1rem 1rem 1rem 3rem;
+    }
+    .form-container{
+        margin: 1rem 1rem 1rem 3rem;
+    }
+    .add-btn{
+        width: 30%;
+    }
+    .input-task{
+        width: 70%;
+        margin-left: -3rem; 
+    }
 }
