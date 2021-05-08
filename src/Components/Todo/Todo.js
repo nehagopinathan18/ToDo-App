@@ -14,14 +14,15 @@ class Todo extends React.Component{
         this.deleteItem = this.deleteItem.bind(this);
     }
     handleInputChange(event) {
+        
         this.setState({
             userInput: event.target.value
-        });
+        });    
         // console.log(this.state.userInput);
-
         
     }
     addItem(e) {
+        this.clearForm();
         e.preventDefault();
         var newItem = {
           text: this.state.userInput,
@@ -33,6 +34,7 @@ class Todo extends React.Component{
         this.setState({
           items: oldItems,
         });
+       
         // console.log(oldItems);
         // console.log(newItem);
     }
@@ -46,16 +48,21 @@ class Todo extends React.Component{
         });
         console.log(filteredItems);
       }
-    
+      clearForm = () => {
+        document.getElementById("myForm").reset(); 
+        this.setState({
+          userInput: ""
+        })
+      }
     render() {
         return (
             <div>
                 
-                <img alt="todo-img" className="app-logo" src="https://image.freepik.com/free-vector/people-making-list-illustration_53876-64623.jpg" ></img>
+                <img alt = "todo-img" className="app-logo" src="https://image.freepik.com/free-vector/people-making-list-illustration_53876-64623.jpg" ></img>
                 <h1 className="title">To-Do-LIST</h1>
                 <div className="form-container">
-                <form onSubmit={this.addItem}>
-                    <input placeholder="Enter task" className="input-task" onChange={this.handleInputChange} value = {this.state.userInput}></input>
+                <form id="myForm" onSubmit={this.addItem} >
+                    <input onFocus={this.reset} placeholder="Enter task" className="input-task" onChange={this.handleInputChange} value = {this.state.userInput}  type="text"  ></input>
                     
                         <button type="submit" className="add-btn">ADD</button>
                 </form>

@@ -14,7 +14,7 @@ class Todoitems extends React.Component {
       return <div className="theList">
         <li key={item.createdDate}>{item.text}
         
-        <img onClick={() => this.delete(item.createdDate)} className ="save-img" src="https://img.icons8.com/material-rounded/24/000000/delete-sign.png"/>
+        <img onClick={() => this.delete(item.createdDate)} alt = "save-img" className ="save-img" src="https://img.icons8.com/material-rounded/24/000000/delete-sign.png"/>
         
         </li>
         
@@ -28,7 +28,7 @@ class Todoitems extends React.Component {
       
       // console.log(todoEntries);
       return (
-        <ul >
+        <ul key={listItems}>
             {listItems}
         </ul>
       );
